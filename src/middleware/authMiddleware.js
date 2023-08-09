@@ -6,7 +6,7 @@ const authMiddleWare = (req, res, next) => {
     const token = req.headers.token.split(' ')[1]
     jwt.verify(token, process.env.ACCESS_TOKEN, function (err, user) {
         if (err) {
-            return res.status(404).json({   
+            return res.status(404).json({
                 message: 'The authemtication',
                 status: 'ERROR'
             })
@@ -25,11 +25,11 @@ const authMiddleWare = (req, res, next) => {
 const authUserMiddleWare = (req, res, next) => {
     const token = req.headers.token.split(' ')[1]
     const userId = req.params.id
-        console.log('u',userId);
+    console.log('userId',userId);
     jwt.verify(token, process.env.ACCESS_TOKEN, function (err, user) {
         if (err) {
             return res.status(404).json({
-                message: 'The authemticationrgffd',
+                message: 'The authemtication',
                 status: 'ERROR'
             })
         }
@@ -43,6 +43,7 @@ const authUserMiddleWare = (req, res, next) => {
         }
     });
 }
+
 module.exports = {
     authMiddleWare,
     authUserMiddleWare

@@ -41,6 +41,7 @@ const getAllOrderDetails  = async (req, res) => {
 const getDetailsOrder = async (req, res) => {
     try {
         const orderId = req.params.id
+        console.log('od',orderId);
         if (!orderId) {
             return res.status(200).json({
                 status: 'ERR',
@@ -60,6 +61,7 @@ const getDetailsOrder = async (req, res) => {
 const cancelOrderDetails = async (req, res) => {
     try {
         const orderId = req.params.id
+        
         const data = req.body
         if (!orderId) {
             return res.status(200).json({
